@@ -1,3 +1,6 @@
+
+
+
 const express = require('express')
 const multer = require('multer')
 const Web3 = require('web3')
@@ -22,8 +25,12 @@ app.post('/upload', upload.single('file'), (req, res) => {
 
   const contract = new web3.eth.Contract(contractABI, contractAddress)
 
+  const account = web3.eth.accounts.privateKeyToAccount('862ee9e2af87add5837abbe482d39223dd912e9472fa17a7dd287dc285365e79')
+  web3.eth.accounts.wallet.add(account)
+  web3.eth.defaultAccount = account.address
+
   contract.methods.storeFile(fileContent)
-    .send({ from: '0x2C17BbFCb04161690949f026A8fA62237795A962', gas: 3000000 })
+    .send({ from: account.address, gas: 3000000 })
     .then((result) => {
       console.log(result)
       res.json({ success: true })
