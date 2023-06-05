@@ -34,7 +34,6 @@ app.post('/upload', upload.single('file'), (req, res) => {
     .then((result) => {
       console.log(result)
       res.json({ success: true })
-      alert("Pravin Registered Successfully")
     })
     .catch((error) => {
       console.error(error)
