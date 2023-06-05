@@ -22,7 +22,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
 
   const contract = new web3.eth.Contract(contractABI, contractAddress)
 
-  contract.methods.storeFile(fileContent, timestamp)
+  contract.methods.storeFile(fileContent)
     .send({ from: '0x2C17BbFCb04161690949f026A8fA62237795A962', gas: 3000000 })
     .then((result) => {
       console.log(result)
