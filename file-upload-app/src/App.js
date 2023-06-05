@@ -18,11 +18,11 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
-        alert("Pravin Registered Succesfully")
       })
       .catch((error) => {
         console.error(error)
       })
+    alert("Pravin Registered Succesfully")
   }
 
   return (
