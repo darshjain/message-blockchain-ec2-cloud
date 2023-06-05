@@ -11,7 +11,7 @@ function App() {
     const formData = new FormData()
     formData.append('file', selectedFile)
 
-    fetch('http://3.109.46.177:3002/upload', {
+    fetch('http://3.109.46.177:3001/upload', {
       method: 'POST',
       body: formData,
     })
